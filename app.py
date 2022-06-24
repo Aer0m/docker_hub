@@ -41,6 +41,8 @@ def predict_bill():
    unseen = np.array([[age, sex, bmi, children, smoker, region]], dtype=float)
    # unseen = np.nan_to_num(unseen)
    result = knn.predict(unseen)
+   result = float(result)
+   result = round(result, 2)
    # возвращаем результат
    return render_template("index.html", pred='Примерная сумма оплаты {}'.format(result))
 
